@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  google_id: QVn-CgAAQBAJ
+  status: 1
+  user: linus
+
+one:
+  google_id: RMd3GpIFxcUC
+  status: 1
+  user: linus
+
+two:
+  google_id: QVn-CgAAQBAJ
+  status: 1
+  user: john
