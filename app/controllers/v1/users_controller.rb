@@ -38,8 +38,7 @@ class V1::UsersController < ApplicationController
   end
 
   def user_params
-    snake_case_params(params)
-    .require(:user)
+    params.require(:user)
     .permit(:email, :password, :password_confirmation)
   end
 end

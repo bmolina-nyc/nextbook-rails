@@ -5,10 +5,6 @@ class ApplicationController < ActionController::API
 
   private
 
-  def snake_case_params(params)
-    params.transform_keys { |key| key.to_s.underscore.to_sym }
-  end
-
   def not_found
     head(:not_found)
   end
