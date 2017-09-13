@@ -1,5 +1,5 @@
 class V1::UserBooksController < ApplicationController
-  before_action :set_user_book, only: %i(show create update destroy)
+  before_action :set_user_book, only: %i(show update destroy)
 
   # GET /v1/user_books
   def index
@@ -14,21 +14,21 @@ class V1::UserBooksController < ApplicationController
 
   # POST /v1/user_books
   def create
-    @user_book = current_user.user_books.new(user_params)
+    @user_book = current_user.user_books.new(user_book_params)
 
-    if @user.save
+    if @user_book.save
       render :create, status: :created
     else
-      render_json_errors(@user)
+      render_json_errors(@user_book)
     end
   end
 
-  # PUT/PATCH /v1/user_books/:id
+  # PUT/PATCH /v1/user_books/:google_id
   def update
-    if @user_book.update(status: user_books_params[:status])
+    if @user_book.update(status: user_book_params[:status])
       render :create, status: :ok
     else
-      render_json_errors(@user)
+      render_json_errors(@user_book)
     end
   end
 
@@ -40,10 +40,12 @@ class V1::UserBooksController < ApplicationController
   private
 
   def set_user_book
-    @user_book = UserBook.find(user_books_params[:google_id])
+    @user_book = UserBook.find(params[:google_id])
   end
 
-  def user_books_params
-    params.require(:user_book).permit(:status, :google_id)
+  def user_book_params
+    snake_case_params(params)
+    .require(:user_book)
+    .permit(:status, :google_id)
   end
 end

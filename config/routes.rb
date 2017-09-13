@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     resources :users, only: %i(create show update destroy)
-    resources :user_books, only: %i(index show create update destroy)
+    resources :user_books, param: :google_id,
+              only: %i(index show create update destroy)
     resource :sessions, only: %i(create show destroy)
   end
 

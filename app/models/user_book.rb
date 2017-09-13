@@ -1,4 +1,6 @@
 class UserBook < ApplicationRecord
+  self.primary_key = "google_id"
+
   enum status: {
     to_be_read: 0,
     liked: 1,
