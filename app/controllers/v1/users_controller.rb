@@ -1,22 +1,41 @@
 class V1::UsersController < ApplicationController
+  before_action :set_user, only: %i(show update destroy)
 
   # POST /v1/users
   def create
+    @user = User.new(user_params)
+
+    if @user.save
+      render :create, status: :created
+    else
+      render_json_errors(@user)
+    end
   end
 
-  # GET /v1/users
+  # GET /v1/users/:id
   def show
+    render json: @user.as_json, status: :ok
   end
 
-  # PUT/PATCH /v1/users
+  # PUT/PATCH /v1/users/:id
   def update
+    if @user.update(user_params)
+      render json: :update, status: :ok
+    else
+      render_json_errors(@user)
+    end
   end
 
-  # DELETE /v1/users
+  # DELETE /v1/users/:id
   def destroy
+    @user.destroy ? head(:no_content) : head(:bad_request)
   end
 
   private
+
+  def set_user
+    @user ||= User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
