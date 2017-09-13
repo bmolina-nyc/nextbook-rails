@@ -6,10 +6,8 @@
 #
 linus:
   email: linus.rosskamp@gmail.com
-  encrypted_password: 'password'
   authentication_token: 'token'
 
 john:
   email: john.smith@gmail.com
-  encrypted_password: 'password'
   authentication_token: 'token2'

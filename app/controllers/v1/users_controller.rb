@@ -14,13 +14,13 @@ class V1::UsersController < ApplicationController
 
   # GET /v1/users/:id
   def show
-    render json: @user.as_json, status: :ok
+    render :show, status: :ok
   end
 
   # PUT/PATCH /v1/users/:id
   def update
     if @user.update(user_params)
-      render json: :update, status: :ok
+      render :update, status: :ok
     else
       render_json_errors(@user)
     end
