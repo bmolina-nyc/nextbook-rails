@@ -26,15 +26,6 @@ class V1::UserBooksController < ApplicationController
     end
   end
 
-  # PUT/PATCH /v1/user_books/:google_id
-  def update
-    if @user_book.update(status: user_book_params[:status])
-      render :create, status: :ok
-    else
-      render_json_errors(@user_book)
-    end
-  end
-
   # DELETE /v1/user_books/:google_id
   def destroy
     @user_book.destroy ? head(:no_content) : head(:bad_request)
