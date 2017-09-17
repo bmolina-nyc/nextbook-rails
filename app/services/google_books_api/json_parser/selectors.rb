@@ -18,11 +18,7 @@ module GoogleBooksApi
       end
 
       def get_published_date(item)
-        begin
-          Date.parse(item['volumeInfo']['publishedDate'])
-        rescue
-          nil
-        end
+        item['volumeInfo']['publishedDate']
       end
 
       def get_description(item)

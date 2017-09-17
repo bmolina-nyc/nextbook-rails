@@ -1,5 +1,4 @@
 class GoogleBooksApi::JsonParser::Search < GoogleBooksApi::JsonParser::Base
-
   def call
     get_hash
   end
@@ -15,6 +14,10 @@ class GoogleBooksApi::JsonParser::Search < GoogleBooksApi::JsonParser::Base
 
   def get_items_array
     response['items'].map { |item| get_item_hash(item) }
+  end
+
+  def get_item_hash(item)
+    super.merge(preview: get_text_preview(item))
   end
 
   def get_total_items

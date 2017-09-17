@@ -8,7 +8,7 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
   private
 
   # Search Constant
-  DEFAULT_MAX = 8
+  DEFAULT_MAX = 9
 
   def get_params_hash
     hash = super.merge({

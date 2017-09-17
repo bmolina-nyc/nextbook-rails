@@ -1,0 +1,12 @@
+json.call(
+  book,
+  :title,
+  :subtitle,
+  :thumbnail,
+  :published_date,
+  :average_rating,
+  :page_count,
+  :authors,
+  :categories,
+  :preview
+)
