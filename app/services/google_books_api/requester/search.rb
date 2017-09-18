@@ -1,14 +1,15 @@
 class GoogleBooksApi::Requester::Search < RequesterBase
-  def initialize(query, **args)
+  def initialize(query, start_index)
     @query = query
-    @args = args
+    @start_index = start_index
   end
 
   private
 
   def generate_url
-    GoogleBooksApi::UrlGenerator::Search.new(query, args).call
+    GoogleBooksApi::UrlGenerator::Search.new(
+      query, start_index).call
   end
 
-  attr_reader :query, :args
+  attr_reader :query, :start_index
 end

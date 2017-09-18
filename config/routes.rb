@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :v1 do
+    resources :searches, only: %i(index)
     resources :books, only: %i(index)
     resources :users, only: %i(create show update destroy)
     resources :user_books, param: :google_id,

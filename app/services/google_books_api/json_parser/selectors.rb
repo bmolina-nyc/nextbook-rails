@@ -47,7 +47,13 @@ module GoogleBooksApi
       end
 
       def get_text_preview(item)
-        item['searchInfo']['textSnippet']
+        begin
+          item['searchInfo']['textSnippet']
+        rescue
+          nil
+        else
+          item['searchInfo']['textSnippet']
+        end
       end
     end
   end
