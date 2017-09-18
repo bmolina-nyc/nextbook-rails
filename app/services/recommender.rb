@@ -20,7 +20,8 @@ class Recommender
   LIMIT_DEFAULT = 5
 
   def make_google_books_request(title)
-    response = GoogleBooksApi::Requester::Recommendation.new(title).call
+    url = GoogleBooksApi::UrlGenerator::Recommendation.new(title).call
+    response = Requester.new(url).call
     hash = parse_json_into_hash(response)
     build_response(hash)
   end

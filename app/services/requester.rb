@@ -1,9 +1,12 @@
-class RequesterBase
+class Requester
   require 'net/http'
   class ExternalServiceError < StandardError; end
 
+  def initialize(url)
+    @url = url
+  end
+
   def call
-    url = generate_url
     make_request(url)
   end
 
@@ -16,5 +19,5 @@ class RequesterBase
     JSON.parse(res.body)
   end
 
-  attr_reader :params
+  attr_reader :url
 end

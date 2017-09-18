@@ -11,7 +11,7 @@ class GoogleBooksApi::ResponseBuilder::Base
   end
 
   def add_status_to_book(book)
-    user_book = user.user_books.find(book[:google_id])
+    user_book = user.user_books.find(book[:id])
   rescue ActiveRecord::RecordNotFound
     book.merge(status: nil)
   else

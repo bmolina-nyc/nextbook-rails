@@ -1,4 +1,4 @@
-class TasteDiveApi::Requester < RequesterBase
+class TasteDiveApi::Requester < Requester
   def initialize(user)
     @user = user
   end

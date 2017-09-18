@@ -26,5 +26,5 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
     'title,subtitle,imageLinks/thumbnail,publishedDate,averageRating,pageCount,authors,categories'
   end
 
-  attr_reader :query, :max_results, :start_index
+  attr_reader :query, :start_index
 end

@@ -1,5 +1,5 @@
 class V1::UserBooksController < ApplicationController
-  before_action :set_user_book, only: %i(show update destroy)
+  before_action :set_user_book, only: %i(show destroy)
 
   # GET /v1/user_books
   def index
@@ -38,6 +38,6 @@ class V1::UserBooksController < ApplicationController
   end
 
   def user_book_params
-    params.require(:user_book).permit(:status, :google_id)
+    snake_params.require(:user_book).permit(:status, :google_id)
   end
 end
