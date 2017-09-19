@@ -10,10 +10,11 @@
 ## Progress
 Read the posts while the application is being built:
 
-[Part 1 - 8/24/2017](http://linusrosskamp.com/articles/2017-08/part-1-nextbook-rails-react-single-page-application)<br>
-[Part 2 - 8/25/2017](http://linusrosskamp.com/articles/2017-08/part-2-nextbook-rails-react-single-page-application)<br>
-[Part 3 - 8/26/2017](http://linusrosskamp.com/articles/2017-08/part-3-nextbook-rails-react-single-page-application)<br>
-[Part 4 - 8/28/2017](http://linusrosskamp.com/articles/2017-08/part-4-nextbook-rails-react-single-page-application)
+[Part 1 - Intro - 8/24/2017](http://linusrosskamp.com/articles/2017-08/part-1-nextbook-rails-react-single-page-application)<br>
+[Part 2 - Setup - 8/25/2017](http://linusrosskamp.com/articles/2017-08/part-2-nextbook-rails-react-single-page-application)<br>
+[Part 3 - External APIs - 8/26/2017](http://linusrosskamp.com/articles/2017-08/part-3-nextbook-rails-react-single-page-application)<br>
+[Part 4 - URL Generator - 8/28/2017](http://linusrosskamp.com/articles/2017-08/part-4-nextbook-rails-react-single-page-application)
+[Part 5 - JSON Parser - 9/18/2017](http://linusrosskamp.com/articles/2017-09/part-5-nextbook-rails-react-single-page-application)
 
 
 ## Technologies
