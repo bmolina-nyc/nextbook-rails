@@ -1,7 +1,7 @@
 class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
-  def initialize(query, start_index=nil)
+  def initialize(query, page=nil)
     @query = query
-    @start_index = start_index
+    @page = page
   end
 
   private
@@ -15,7 +15,11 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
       printType: PRINT_TYPE,
       maxResults: DEFAULT_MAX
     })
-    start_index ? hash.merge(startIndex: start_index) : hash
+    page ? hash.merge(startIndex: calculate_start_index) : hash
+  end
+
+  def calculate_start_index
+    (page.to_i - 1) * DEFAULT_MAX
   end
 
   def get_fields
@@ -26,5 +30,5 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
     'title,subtitle,imageLinks/thumbnail,publishedDate,averageRating,pageCount,authors,categories'
   end
 
-  attr_reader :query, :start_index
+  attr_reader :query, :page
 end

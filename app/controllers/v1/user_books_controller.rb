@@ -38,6 +38,6 @@ class V1::UserBooksController < ApplicationController
   end
 
   def user_book_params
-    snake_params.require(:user_book).permit(:status, :google_id)
+    params.require(:user_book).permit(:status, :google_id)
   end
 end

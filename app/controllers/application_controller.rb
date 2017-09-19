@@ -18,8 +18,4 @@ class ApplicationController < ActionController::API
     render json: object.errors.as_json(full_messages: true),
            status: :bad_request
   end
-
-  def snake_params
-      params.transform_keys { |key| key.to_s.underscore.to_sym }
-  end
 end

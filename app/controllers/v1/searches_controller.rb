@@ -1,7 +1,7 @@
 class V1::SearchesController < ApplicationController
 
   # GET v1/searches
-  def index
+  def show
     parsed = Rails.cache.fetch("#{cache_key}", expires_in: 3.days) do
       parse_json_into_hash(search)
     end
@@ -12,17 +12,18 @@ class V1::SearchesController < ApplicationController
   private
 
   def cache_key
-    "#{searches_params[:query]}-#{searches_params[:start_index]}"
+    "#{searches_params[:query]}-#{searches_params[:page]}"
   end
 
   def search
+    puts generate_url
     Requester.new(generate_url).call
   end
 
   def generate_url
     klass('UrlGenerator').new(
       searches_params[:query],
-      searches_params[:start_index]
+      searches_params[:page]
     ).call
   end
 
@@ -35,7 +36,7 @@ class V1::SearchesController < ApplicationController
   end
 
   def searches_params
-    snake_params.permit(:query, :start_index)
+    params.permit(:query, :page)
   end
 
   def klass(module_name)
