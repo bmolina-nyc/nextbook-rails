@@ -10,7 +10,7 @@ class GoogleBooksApi::UrlGenerator::Lookup < GoogleBooksApi::UrlGenerator::Base
   end
 
   def get_fields
-    "id,volumeInfo(#{volume_info_full_fields})"
+    "id,volumeInfo(#{VOLUME_INFO_FIELDS.join(',')})"
   end
 
   attr_reader :google_id

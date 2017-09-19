@@ -1,0 +1,26 @@
+{
+  "totalItems": 387,
+  "items": [{
+    "id": "QVn-CgAAQBAJ",
+    "volumeInfo": {
+      "title": "The Way of Kings",
+      "authors": [
+        "Brandon Sanderson"
+      ],
+      "publishedDate": "2014-03-04",
+      "description": "Introduces the world of Roshar through the experiences of a war-weary royal compelled by visions, a highborn youth condemned to military slavery, and a woman who is desperate to save her impoverished house.",
+      "pageCount": 1008,
+      "categories": [
+        "Fiction"
+      ],
+      "averageRating": 4.0,
+      "ratingsCount": 98,
+      "imageLinks": {
+        "thumbnail": "http://books.google.com/books/content?id=QVn-CgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      }
+    },
+    "searchInfo": {
+      "textSnippet": "Introduces the world of Roshar through the experiences of a war-weary royal compelled by visions, a highborn youth condemned to military slavery, and a woman who is desperate to save her impoverished house."
+    }
+  }]
+}

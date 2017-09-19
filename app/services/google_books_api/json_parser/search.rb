@@ -17,7 +17,7 @@ class GoogleBooksApi::JsonParser::Search < GoogleBooksApi::JsonParser::Base
   end
 
   def get_item_hash(item)
-    super.merge(preview: get_text_preview(item))
+    super.merge(preview: get_preview(item))
   end
 
   def get_total_items

@@ -14,11 +14,11 @@ class GoogleBooksApi::JsonParser::Base
       subtitle: get_subtitle(item),
       authors: get_authors(item),
       published_date: get_published_date(item),
-      thumbnail: get_image_link(item),
+      thumbnail: get_thumbnail(item),
       page_count: get_page_count(item),
       ratings_count: get_ratings_count(item),
       average_rating: get_average_rating(item),
-      categories: get_genres(item)
+      categories: get_categories(item)
     }
   end
 

@@ -1,4 +1,6 @@
 class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerator::Base
+  include PreviewFields
+
   def initialize(title)
     @title = title
   end
@@ -11,10 +13,6 @@ class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerato
       printType: PRINT_TYPE,
       maxResults: 1
     })
-  end
-
-  def get_fields
-    "items(id,volumeInfo(#{volume_info_preview_fields}))"
   end
 
   attr_reader :title

@@ -25,7 +25,7 @@ module GoogleBooksApi
         item['volumeInfo']['description']
       end
 
-      def get_image_link(item)
+      def get_thumbnail(item)
         volume_info = item['volumeInfo']
         volume_info.key?('imageLinks') ?
           volume_info['imageLinks']['thumbnail']
@@ -44,11 +44,11 @@ module GoogleBooksApi
         item['volumeInfo']['averageRating']
       end
 
-      def get_genres(item)
+      def get_categories(item)
         item['volumeInfo']['categories']
       end
 
-      def get_text_preview(item)
+      def get_preview(item)
         item['searchInfo']['textSnippet']
       end
     end
