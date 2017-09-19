@@ -5,7 +5,7 @@ class GoogleBooksApi::JsonParser::Lookup < GoogleBooksApi::JsonParser::Base
 
   private
 
-  def get_item_hash
+  def get_item_hash(item)
     super.merge(description: get_description(item))
   end
 end

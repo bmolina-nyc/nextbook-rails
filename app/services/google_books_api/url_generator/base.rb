@@ -3,6 +3,11 @@ class GoogleBooksApi::UrlGenerator::Base
     "#{get_base_url}?#{get_params_hash.to_query}"
   end
 
+  VOLUME_INFO_FIELDS = %w(
+    title subtitle imageLinks/thumbnail description publishedDate
+    averageRating ratingsCount pageCount authors categories
+  )
+
   private
 
   def get_params_hash
@@ -17,8 +22,4 @@ class GoogleBooksApi::UrlGenerator::Base
   BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
   API_KEY = Rails.application.secrets.GOOGLE_BOOKS_API_KEY
   PRINT_TYPE = 'books'
-  VOLUME_INFO_FIELDS = %w(
-    title subtitle imageLinks/thumbnail description publishedDate
-    averageRating ratingsCount pageCount authors categories
-  )
 end

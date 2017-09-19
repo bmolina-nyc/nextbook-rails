@@ -40,6 +40,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'awesome_print'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

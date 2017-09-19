@@ -1,0 +1,36 @@
+{
+  "Similar": {
+    "Info": [
+      {
+        "Name": "Snow Crash",
+        "Type": "book"
+      },
+      {
+        "Name": "The Way Of Kings",
+        "Type": "book"
+      }
+    ],
+    "Results": [
+      {
+        "Name": "Words Of Radiance",
+        "Type": "book"
+      },
+      {
+        "Name": "The Diamond Age",
+        "Type": "book"
+      },
+      {
+        "Name": "Warbreaker",
+        "Type": "book"
+      },
+      {
+        "Name": "Anathem",
+        "Type": "book"
+      },
+      {
+        "Name": "The Stormlight Archive",
+        "Type": "book"
+      }
+    ]
+  }
+}

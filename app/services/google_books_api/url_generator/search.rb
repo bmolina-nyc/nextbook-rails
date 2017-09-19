@@ -1,5 +1,5 @@
 class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
-  include PreviewFields
+  include  GoogleBooksApi::UrlGenerator::PreviewFields
 
   def initialize(query, page=nil)
     @query = query
@@ -22,6 +22,10 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
 
   def calculate_start_index
     (page.to_i - 1) * DEFAULT_MAX
+  end
+
+  def get_fields
+    "totalItems,items(#{items_fields})"
   end
 
   attr_reader :query, :page
