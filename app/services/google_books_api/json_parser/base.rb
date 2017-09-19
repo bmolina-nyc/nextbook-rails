@@ -14,17 +14,12 @@ class GoogleBooksApi::JsonParser::Base
       subtitle: get_subtitle(item),
       authors: get_authors(item),
       published_date: get_published_date(item),
-      description: get_description(item),
       thumbnail: get_image_link(item),
       page_count: get_page_count(item),
       ratings_count: get_ratings_count(item),
       average_rating: get_average_rating(item),
       categories: get_genres(item)
     }
-  end
-
-  def get_error
-    response['error']['code']
   end
 
   attr_reader :response

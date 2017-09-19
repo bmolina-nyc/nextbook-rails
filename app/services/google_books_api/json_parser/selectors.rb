@@ -27,7 +27,9 @@ module GoogleBooksApi
 
       def get_image_link(item)
         volume_info = item['volumeInfo']
-        volume_info.key?('imageLinks') ? volume_info['imageLinks']['thumbnail'] : nil
+        volume_info.key?('imageLinks') ?
+          volume_info['imageLinks']['thumbnail']
+          : nil
       end
 
       def get_page_count(item)
@@ -47,13 +49,7 @@ module GoogleBooksApi
       end
 
       def get_text_preview(item)
-        begin
-          item['searchInfo']['textSnippet']
-        rescue
-          nil
-        else
-          item['searchInfo']['textSnippet']
-        end
+        item['searchInfo']['textSnippet']
       end
     end
   end
