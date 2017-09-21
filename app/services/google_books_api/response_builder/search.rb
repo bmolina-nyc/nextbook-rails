@@ -1,17 +1,26 @@
-class GoogleBooksApi::ResponseBuilder::Search < GoogleBooksApi::ResponseBuilder::Base
+class GoogleBooksApi::ResponseBuilder::Search
   def initialize(user, hash)
-    super(user, hash)
+    @user = user
+    @hash = hash
   end
 
   def call
-    books = hash
-    books[:items] = add_status_to_books(books[:items])
-    camelize_keys(books)
+    search = hash
+    search[:items] = build_responses(search[:items])
+    camelize_keys(search)
   end
 
   private
 
-  def add_status_to_books(books)
-    books.map { |book| add_status_to_book(book) }
+  def camelize_keys(hash)
+    hash.transform_keys { |key| key.to_s.camelize(:lower) }
+  end
+
+  def build_responses(books)
+    books.map { |book| build_response }
+  end
+
+  def build_response(book)
+    GoogleBooksApi::ResponseBuilder::Base.new(user, book)
   end
 end

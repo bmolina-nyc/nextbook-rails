@@ -4,10 +4,16 @@ class GoogleBooksApi::ResponseBuilder::Base
     @hash = hash
   end
 
+  def call
+    book = hash
+    book = add_status_to_book(book)
+    camelize_keys(book)
+  end
+
   private
 
-  def camelize_keys(hash)
-    hash.deep_transform_keys { |keys| keys.to_s.camelize(:lower) }
+  def camelize_keys(book)
+    book.transform_keys { |key| key.to_s.camelize(:lower) }
   end
 
   def add_status_to_book(book)
