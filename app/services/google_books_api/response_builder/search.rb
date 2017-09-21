@@ -17,10 +17,12 @@ class GoogleBooksApi::ResponseBuilder::Search
   end
 
   def build_responses(books)
-    books.map { |book| build_response }
+    books.map { |book| build_response(book) }
   end
 
   def build_response(book)
-    GoogleBooksApi::ResponseBuilder::Base.new(user, book)
+    GoogleBooksApi::ResponseBuilder::Base.new(user, book).call
   end
+
+  attr_reader :user, :hash
 end
