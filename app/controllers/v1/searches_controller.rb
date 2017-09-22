@@ -16,7 +16,6 @@ class V1::SearchesController < ApplicationController
   end
 
   def search
-    puts generate_url
     Requester.new(generate_url).call
   end
 
