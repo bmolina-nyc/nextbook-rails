@@ -19,15 +19,17 @@ class V1::RecommendationsController < ApplicationController
 
   def fetch_and_parse_recommendations(title)
     url = TasteDiveApi::UrlGenerator.new(title).call
+    puts "tastedive url: #{url}"
     response = Requester.new(url).call
-    puts response
+    puts "tastedive response: #{response}"
     TasteDiveApi::JsonParser.new(response).call
   end
 
   def fetch_and_parse_from_google_books_api(title)
     url = GoogleBooksApi::UrlGenerator::Recommendation.new(title).call
+    puts "google url: #{url}"
     response = Requester.new(url).call
-    puts response
+    puts "google response: #{response}"
     GoogleBooksApi::JsonParser::Recommendation.new(response).call
   end
 
