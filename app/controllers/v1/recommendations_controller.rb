@@ -5,6 +5,7 @@ class V1::RecommendationsController < ApplicationController
     books = Rails.cache.fetch(
       "#{params[:title].downcase}-Rec", expires_in: 10.days) do
       titles_array = fetch_and_parse_recommendations(params[:title])
+      render(json: [], status: :ok) unless titles_array
       books = []
       titles_array.map do |title|
         books << fetch_and_parse_from_google_books_api(title)
@@ -31,6 +32,6 @@ class V1::RecommendationsController < ApplicationController
   end
 
   def camelize_books(books)
-    books.map { |book| camelize_keys(book)}
+    books.map { |book| camelize_keys(book) }
   end
 end
