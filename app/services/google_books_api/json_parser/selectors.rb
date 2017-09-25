@@ -21,6 +21,10 @@ module GoogleBooksApi
         item['volumeInfo']['publishedDate']
       end
 
+      def get_publisher(item)
+        item['volumeInfo']['publisher']
+      end
+
       def get_description(item)
         item['volumeInfo']['description']
       end

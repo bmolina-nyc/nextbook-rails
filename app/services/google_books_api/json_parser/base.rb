@@ -14,6 +14,7 @@ class GoogleBooksApi::JsonParser::Base
       subtitle: get_subtitle(item),
       authors: get_authors(item),
       published_date: get_published_date(item),
+      publisher: get_publisher(item),
       thumbnail: get_thumbnail(item),
       page_count: get_page_count(item),
       ratings_count: get_ratings_count(item),

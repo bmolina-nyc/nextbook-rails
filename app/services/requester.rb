@@ -15,7 +15,7 @@ class Requester
   def make_request(url)
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
-    raise ExternalServiceError if res.code =~ /4\d\d/
+    raise ExternalServiceError if res.code =~ /(4|5)\d\d/
     JSON.parse(res.body)
   end
 

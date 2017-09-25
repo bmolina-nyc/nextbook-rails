@@ -24,10 +24,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
-# gem 'devise', '>= 4.0'
-# gem 'simple_token_authentication', '~> 1.0'
-# gem 'friendly_id'
-# gem 'wikipedia-client'
 
 group :test do
   gem 'minitest-reporters'
@@ -43,7 +39,6 @@ end
 group :development do
   gem 'guard'
   gem 'guard-minitest'
-  gem 'awesome_print'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
