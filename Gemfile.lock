@@ -42,14 +42,15 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (8.0.0)
-    awesome_print (1.8.0)
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    dalli (2.7.6)
     erubi (1.6.1)
+    ffi (1.9.18)
     ffi (1.9.18-x64-mingw32)
     formatador (0.2.5)
     globalid (0.4.0)
@@ -95,6 +96,8 @@ GEM
     multi_json (1.12.2)
     nenv (0.3.0)
     nio4r (2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     nokogiri (1.8.0-x64-mingw32)
       mini_portile2 (~> 2.2.0)
     notiffany (0.1.1)
@@ -165,11 +168,12 @@ GEM
     websocket-extensions (0.1.2)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
-  awesome_print
   byebug
+  dalli
   guard
   guard-minitest
   jbuilder (~> 2.5)
