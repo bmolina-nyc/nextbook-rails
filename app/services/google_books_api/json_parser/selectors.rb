@@ -51,6 +51,10 @@ module GoogleBooksApi
         item.key?('searchInfo') && item['searchInfo'].key?('textSnippet') ?
           item['searchInfo']['textSnippet'] : nil
       end
+
+      def get_publisher(item)
+        item['volumeInfo']['publisher']
+      end
     end
   end
 end

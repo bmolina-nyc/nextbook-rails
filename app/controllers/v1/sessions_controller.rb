@@ -19,7 +19,7 @@ class V1::SessionsController < ApplicationController
   # DELETE /v1/session
   def destroy
     nilify_token
-    current_user.save ? head(:ok) : head(:unauthorized)
+    current_user&.save ? head(:ok) : head(:unauthorized)
   end
 
   private

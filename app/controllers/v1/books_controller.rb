@@ -4,9 +4,9 @@ class V1::BooksController < ApplicationController
   def index
     books = current_user.book_ids(15).map do |google_id|
       # unless exists_on_client?(google_id)
-      parsed = Rails.cache.fetch( "lookup-#{google_id}", expires_in: 30.days) do
-        fetch_and_parse(google_id)
-      end
+      # parsed = Rails.cache.fetch( "lookup-#{google_id}", expires_in: 30.days) do
+        parsed = fetch_and_parse(google_id)
+      # end
       # end
       build_response(parsed)
     end
@@ -37,7 +37,8 @@ class V1::BooksController < ApplicationController
   end
 
   def build_response(parsed)
-    klass('ResponseBuilder').new(current_user, parsed).call
+    klass = GoogleBooksApi::ResponseBuilder::Base
+    klass.new(current_user, parsed).call
   end
 
   def klass(module_name)

@@ -18,7 +18,8 @@ class GoogleBooksApi::JsonParser::Base
       page_count: get_page_count(item),
       ratings_count: get_ratings_count(item),
       average_rating: get_average_rating(item),
-      categories: get_categories(item)
+      categories: get_categories(item),
+      publisher: get_publisher(item)
     }
   end
 

@@ -44,6 +44,7 @@ GEM
     arel (8.0.0)
     awesome_print (1.8.0)
     bcrypt (3.1.11-x64-mingw32)
+    bcrypt-ruby (3.0.1)
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
@@ -189,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bcrypt-ruby (~> 3.0.0)
   byebug
   devise (>= 4.0)
   friendly_id

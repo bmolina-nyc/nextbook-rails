@@ -8,5 +8,6 @@ json.call(
   :page_count,
   :authors,
   :categories,
-  :preview
+  :preview,
+  :updated_at
 )
