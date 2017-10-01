@@ -4,8 +4,8 @@ class GoogleBooksApi::UrlGenerator::Base
   end
 
   VOLUME_INFO_FIELDS = %w(
-    title subtitle imageLinks/thumbnail description publishedDate
-    averageRating ratingsCount pageCount authors categories publisher
+    title subtitle imageLinks/thumbnail description
+    publishedDate pageCount authors categories publisher
   )
 
   private

@@ -35,14 +35,6 @@ module GoogleBooksApi
         item['volumeInfo']['pageCount']
       end
 
-      def get_ratings_count(item)
-        item['volumeInfo']['ratingsCount']
-      end
-
-      def get_average_rating(item)
-        item['volumeInfo']['averageRating']
-      end
-
       def get_categories(item)
         item['volumeInfo']['categories']
       end

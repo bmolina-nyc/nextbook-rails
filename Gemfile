@@ -26,7 +26,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
 gem 'devise', '>= 4.0'
 gem 'simple_token_authentication', '~> 1.0'
-gem 'friendly_id'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 
 group :test do

@@ -1,5 +1,4 @@
 class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
-  include  GoogleBooksApi::UrlGenerator::PreviewFields
 
   def initialize(query, page=nil)
     @query = query
@@ -26,6 +25,14 @@ class GoogleBooksApi::UrlGenerator::Search < GoogleBooksApi::UrlGenerator::Base
 
   def get_fields
     "totalItems,items(#{items_fields})"
+  end
+
+  def items_fields
+    "id,searchInfo/textSnippet,volumeInfo(#{volume_info_fields})"
+  end
+
+  def volume_info_fields
+    (VOLUME_INFO_FIELDS - ['description']).join(',')
   end
 
   attr_reader :query, :page
