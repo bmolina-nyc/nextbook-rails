@@ -2,9 +2,9 @@ class V1::BooksController < ApplicationController
 
   # GET /v1/books
   def index
-    books = current_user.book_ids(15).map do |google_id|
+    books = current_user.book_ids(9).map do |google_id|
       # unless exists_on_client?(google_id)
-      parsed = Rails.cache.fetch( "lookup-#{google_id}", expires_in: 120.days) do
+      parsed = Rails.cache.fetch("lookup-#{google_id}", expires_in: 120.days) do
         parsed = fetch_and_parse(google_id)
       end
       # end

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :v1 do
+    namespace :books do
+      resources :recommendations, only: %i(index)
+    end
     resource  :searches, only: %i(show)
     resources :books, only: %i(index)
     resources :users, only: %i(create show update destroy)

@@ -1,4 +1,4 @@
-class TasteDiveApi::UrlGenerator
+class TasteDiveApi::UrlGenerator::Base
   def initialize(book_titles, limit=DEFAULT_LIMIT)
     @book_titles = book_titles
     @limit = limit
@@ -13,13 +13,11 @@ class TasteDiveApi::UrlGenerator
   # API Constants
   BASE_URL = "https://tastedive.com/api/similar"
   API_KEY = Rails.application.secrets.TASTE_DIVE_API_KEY
-  TYPE = 'books'
-  DEFAULT_LIMIT = 20
+  DEFAULT_LIMIT = 5
 
   def get_params_hash
     {
       q: generate_query,
-      type: TYPE,
       limit: limit,
       k: API_KEY
     }

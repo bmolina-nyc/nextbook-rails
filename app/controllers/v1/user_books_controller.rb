@@ -14,16 +14,27 @@ class V1::UserBooksController < ApplicationController
 
   # POST /v1/user_books
   def create
-    begin
-      @user_book = UserBook.find(user_book_params[:google_id])
-    rescue ActiveRecord::RecordNotFound
-      @user_book = current_user.user_books.new(user_book_params)
+    @book = Book.find_by(google_id: params[:google_id])
+
+    if @book && current_user.books.include?(@book)
+      @user_book = UserBook.find_by(book_id: @book.id)
+      @user_book.assign_attributes(status: params[:status])
     else
-      @user_book.assign_attributes(status: user_book_params[:status])
-    ensure
-      @user_book.save ? render(:create, status: :ok)
-                      : render_json_errors(@user_book)
+      unless @book
+        @book = Book.create(
+          google_id: params[:google_id],
+          title: params[:title],
+          subtitle: params[:subtitle]
+        )
+      end
+
+      @user_book = current_user.user_books.new(
+        book_id: @book.id,
+        status: params[:status]
+      )
     end
+
+    @user_book.save ? head(:ok) : render_json_errors(@user_book)
   end
 
   # DELETE /v1/user_books/:google_id
@@ -34,10 +45,7 @@ class V1::UserBooksController < ApplicationController
   private
 
   def set_user_book
-    @user_book = UserBook.find(params[:google_id])
-  end
-
-  def user_book_params
-    params.require(:user_book).permit(:status, :google_id)
+    book = current_user.books.find_by(google_id: params[:google_id])
+    @user_book = UserBook.find_by(book_id: book.id)
   end
 end

@@ -6,6 +6,10 @@ class GoogleBooksApi::JsonParser::Recommendation < GoogleBooksApi::JsonParser::B
   private
 
   def get_item_hash(item)
-    super.merge(description: get_preview(item))
+    {
+      id: get_google_id(item),
+      title: get_title(item),
+      subtitle: get_subtitle(item),
+    }
   end
 end

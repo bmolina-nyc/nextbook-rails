@@ -1,14 +1,15 @@
 class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerator::Base
 
-  def initialize(title)
+  def initialize(title, author)
     @title = title
+    @author = author
   end
 
   private
 
   def get_params_hash
     super.merge({
-      q: "intitle:'#{title}'",
+      q: "intitle:#{title}+inauthor:#{author}",
       printType: PRINT_TYPE,
       maxResults: 1
     })
@@ -19,12 +20,12 @@ class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerato
   end
 
   def items_fields
-    "id,searchInfo/textSnippet,volumeInfo(#{volume_info_fields})"
+    "id,volumeInfo(#{volume_info_fields})"
   end
 
   def volume_info_fields
-    (VOLUME_INFO_FIELDS - ['description']).join(',')
+    ['title', 'subtitle'].join(',')
   end
 
-  attr_reader :title
+  attr_reader :title, :author
 end

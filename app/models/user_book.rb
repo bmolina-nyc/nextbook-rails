@@ -1,12 +1,15 @@
 class UserBook < ApplicationRecord
-  self.primary_key = "google_id"
-
   enum status: {
-    to_be_read: 0,
-    liked: 1,
-    disliked: 2,
-    recommended: 3
+    liked: 0,
+    disliked: 1,
+    want_to_read: 2,
+    already_read: 3,
+    recommended: 4,
+    rejected: 5
   }
 
+  USER_MARKED_KEYS = statuses.keys - [:recommended]
+
   belongs_to :user
+  belongs_to :book, foreign_key: :google_id
 end

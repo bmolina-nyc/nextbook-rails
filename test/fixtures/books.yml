@@ -1,16 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  status: 1
-  google_id: RMd3GpIFxcUC
-  user: linus
-
-two:
-  status: 1
+the_way_of_kings:
   google_id: QVn-CgAAQBAJ
-  user: linus
+  title: The Way of Kings
 
-three:
-  status: 1
+snow_crash:
   google_id: RMd3GpIFxcUC
-  user: john
+  title: Snow Crash
+  subtitle: A Novel
