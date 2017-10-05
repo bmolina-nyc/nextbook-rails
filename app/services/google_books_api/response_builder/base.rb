@@ -17,12 +17,12 @@ class GoogleBooksApi::ResponseBuilder::Base
   end
 
   def add_status_to_book(book)
-    book_record = user.books.find(book[:id])
-  rescue ActiveRecord::RecordNotFound
-    book.merge(status: nil)
-  else
-    user_book = user.user_books.find_by(book_id: book_record.id)
-    book.merge(status: user_book.status)
+    if user.books.exists?(book[:id])
+      user_book = user.user_books.find_by(google_id: book[:id])
+      book.merge(status: user_book.status)
+    else
+      book.merge(status: nil)
+    end
   end
 
   attr_reader :user, :hash

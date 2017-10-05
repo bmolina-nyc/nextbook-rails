@@ -8,7 +8,9 @@ class UserBook < ApplicationRecord
     rejected: 5
   }
 
-  USER_MARKED_KEYS = statuses.keys - [:recommended]
+  USER_MARKED_KEYS = statuses.keys - ['recommended']
+
+  scope :user_marked, -> { where(status: USER_MARKED_KEYS) }
 
   belongs_to :user
   belongs_to :book, foreign_key: :google_id

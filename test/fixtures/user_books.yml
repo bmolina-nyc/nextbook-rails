@@ -1,16 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  status: 1
+  status: liked
   google_id: RMd3GpIFxcUC
   user: linus
 
 two:
-  status: 1
+  status: liked
   google_id: QVn-CgAAQBAJ
   user: linus
 
 three:
-  status: 1
+  status: liked
   google_id: RMd3GpIFxcUC
   user: john

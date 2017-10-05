@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :v1 do
     namespace :books do
       resources :recommendations, only: %i(index)
+      resources :my_books, only: %i(index)
     end
     resource  :searches, only: %i(show)
     resources :books, only: %i(index)
