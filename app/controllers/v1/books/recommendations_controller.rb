@@ -12,9 +12,7 @@ class V1::Books::RecommendationsController < ApplicationController
   end
 
   def google_books_lookup(id)
-    Rails.cache.fetch("GB-LKP#{id}") do
-      GoogleBooksApi::Lookup.new(id, current_user)
-    end
+    GoogleBooksApi::Lookup.new(id, current_user)
   end
 
   def recommendation_ids

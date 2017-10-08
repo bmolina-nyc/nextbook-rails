@@ -19,9 +19,17 @@ class GoogleBooksApi::ResponseBuilder::Base
   def add_status_to_book(book)
     if user.books.exists?(book[:id])
       user_book = user.user_books.find_by(google_id: book[:id])
-      book.merge(status: user_book.status)
+      book.merge(
+        status: user_book.status,
+        user_book_id: user_book.id,
+        updated_at: user_book.updated_at
+      )
     else
-      book.merge(status: nil)
+      book.merge(
+        status: nil,
+        user_book_id: nil,
+        updated_at: nil
+      )
     end
   end
 

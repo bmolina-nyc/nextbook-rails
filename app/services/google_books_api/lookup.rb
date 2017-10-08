@@ -6,7 +6,7 @@ class GoogleBooksApi::Lookup
   end
 
   def call
-    @temp = Rails.cache.fetch("GB-LKP-#{id}") do
+    @temp = Rails.cache.fetch("GB-LKP-#{id}", expires_in: 365.days) do
       generate_url
       make_request
       parse_response

@@ -6,10 +6,9 @@ Rails.application.routes.draw do
       resources :my_books, only: %i(index)
     end
     resource  :searches, only: %i(show)
-    resources :books, only: %i(index)
+    resources :books, only: %i(index show)
     resources :users, only: %i(create show update destroy)
-    resources :user_books, param: :google_id,
-              only: %i(index show create update destroy)
+    resources :user_books, only: %i(index show create update destroy)
     resource :sessions, only: %i(create show destroy)
   end
 
