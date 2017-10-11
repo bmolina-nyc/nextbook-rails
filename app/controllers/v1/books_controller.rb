@@ -5,11 +5,6 @@ class V1::BooksController < ApplicationController
     render json: google_books_lookup, status: :ok
   end
 
-  # GET /v1/books
-  def index
-    # render json: books, status: :ok
-  end
-
   private
 
   def google_books_lookup

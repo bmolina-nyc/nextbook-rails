@@ -12,10 +12,10 @@ class V1::Books::RecommendationsController < ApplicationController
   end
 
   def google_books_lookup(id)
-    GoogleBooksApi::Lookup.new(id, current_user)
+    GoogleBooksApi::Lookup.new(id, current_user).call
   end
 
   def recommendation_ids
-    current_user.recommended_books.ids
+    current_user.recommendations.order(created_at: 'DESC').ids
   end
 end

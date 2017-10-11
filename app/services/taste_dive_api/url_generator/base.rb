@@ -13,7 +13,7 @@ class TasteDiveApi::UrlGenerator::Base
   # API Constants
   BASE_URL = "https://tastedive.com/api/similar"
   API_KEY = Rails.application.secrets.TASTE_DIVE_API_KEY
-  DEFAULT_LIMIT = 5
+  DEFAULT_LIMIT = 6
 
   def get_params_hash
     {

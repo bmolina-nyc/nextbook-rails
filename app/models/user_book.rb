@@ -8,7 +8,7 @@ class UserBook < ApplicationRecord
     rejected: 5
   }
 
-  USER_MARKED_KEYS = statuses.keys - ['recommended']
+  USER_MARKED_KEYS = statuses.keys - %w(recommended rejected)
 
   scope :user_marked, -> { where(status: USER_MARKED_KEYS) }
 

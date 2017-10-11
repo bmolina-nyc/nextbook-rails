@@ -15,11 +15,9 @@ class V1::UserBooksController < ApplicationController
   # POST /v1/user_books
   def create
     @book = find_or_create_book
-    @user_book = current_user.user_books.create do |ub|
-      ub.status = params[:status]
-      ub.google_id = @book.id
-    end
+    @user_book = create_user_book
     if @user_book
+      @user_book.status == 'liked' && fetch_recommendations
       render :show, status: :ok
     else
       render_json_errors @user_book
@@ -29,6 +27,7 @@ class V1::UserBooksController < ApplicationController
   # PUT/PATCH /v1/user_books
   def update
     if @user_book.update status: params[:status]
+      @user_book.status == 'liked' && fetch_recommendations
       render :show, status: :ok
     else
       render_json_errors @user_book
@@ -42,14 +41,30 @@ class V1::UserBooksController < ApplicationController
 
   private
 
+  def fetch_recommendations
+    return nil if current_user.recommender_job
+    if current_user.can_fetch_recommendations?
+      FetchRecommendationsJob.set(wait: 5.seconds).perform_later(current_user)
+    else
+      date = 5.minutes.since(current_user.last_request_date)
+      FetchRecommendationsJob.set(wait_until: date).perform_later(current_user)
+    end
+  end
+
+  def create_user_book
+    current_user.user_books.create do |ub|
+      ub.status = params[:status]
+      ub.google_id = @book.google_id
+    end
+  end
+
   def book_params
     params.require(:book).permit(:title, :subtitle, :google_id)
   end
 
   def find_or_create_book
-    Book.find(book_params[:google_id])
-  rescue ActiveRecord::RecordNotFound
-    Book.create(book_params)
+    book = Book.find_by(google_id: book_params[:google_id])
+    Book.create(book_params) unless book
   end
 
   def set_user_book

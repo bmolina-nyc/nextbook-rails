@@ -16,6 +16,6 @@ class V1::Books::MyBooksController < ApplicationController
   end
 
   def my_books_ids
-    current_user.marked_books.ids
+    current_user.marked_books.order(created_at: 'DESC').ids
   end
 end
