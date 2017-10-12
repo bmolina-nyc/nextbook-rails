@@ -1,6 +1,7 @@
 class Recommender
-  require_relative 'taste_dive_api/books'
-  require_relative 'google_books_api/recommendation'
+  root = "#{Rails.root}/app/services"
+  require "#{root}/taste_dive_api/books"
+  require "#{root}/google_books_api/recommendation"
 
   def initialize(user)
     @user = user
