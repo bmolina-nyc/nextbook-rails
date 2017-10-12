@@ -7,7 +7,7 @@ class FetchRecommendationsJob < ApplicationJob
 
   after_enqueue do |job|
     user = job.arguments.first
-    user.update recommender_job: job.job_id
+    user.update recommender_job: job.provider_job_id
   end
 
   after_perform do |job|

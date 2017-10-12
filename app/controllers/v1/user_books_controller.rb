@@ -64,7 +64,8 @@ class V1::UserBooksController < ApplicationController
 
   def find_or_create_book
     book = Book.find_by(google_id: book_params[:google_id])
-    Book.create(book_params) unless book
+    return book if book
+    Book.create(book_params)
   end
 
   def set_user_book

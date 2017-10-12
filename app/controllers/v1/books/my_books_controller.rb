@@ -16,6 +16,8 @@ class V1::Books::MyBooksController < ApplicationController
   end
 
   def my_books_ids
-    current_user.marked_books.order(created_at: 'DESC').ids
+    current_user.user_books.user_marked
+    .order(updated_at: 'DESC')
+    .pluck :google_id
   end
 end

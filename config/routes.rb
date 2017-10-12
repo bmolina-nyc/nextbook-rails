@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       resources :recommendations, only: %i(index)
       resources :my_books, only: %i(index)
     end
+    namespace :user_books do
+      resource :counts, only: :show, controller: 'counts'
+    end
     resource  :searches, only: %i(show)
     resources :books, only: %i(index show)
     resources :users, only: %i(create show update destroy)

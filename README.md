@@ -2,9 +2,10 @@
 **NextBook will**
 - allow the user to search for books
 - allow the user to mark a book as
-  - 'to be read'
   - 'liked'
   - 'disliked'
+  - 'want be read'
+  - 'already read'
 - based on the users liked books, they will be given recommendations
 
 ## Progress
@@ -23,23 +24,24 @@ Read the posts while the application is being built:
 - Ruby on Rails
 - PostgreSQL/MemCache
 - React/Redux
-- Semantic UI React
+- Semantic UI React (using [ react-semantic.ui-starter](https://github.com/Metnew/react-semantic.ui-starter))
 
 **APIs**
 - [GoogleBooks API](https://developers.google.com/books/docs/v1/reference/volumes/list)
 - [TasteDive (formerly TasteKid) API](https://tastedive.com/read/api)
+- [Youtube API](https://developers.google.com/youtube/v3/)
+- [Wikipedia API](https://en.wikipedia.org/w/api.php)
 
 **Ruby Gems**
 - Devise
 - VCR
 - WebMock
 - Simple Token Authentication
+- Delayed Job
 
 **JavaScript Libraries**
 - React
 - Redux
-- React-Redux
+- React-Redux(-Router)
 - React-Router
-- Redux-Thunk
 - Lodash
-- Axios
