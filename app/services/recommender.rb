@@ -21,15 +21,20 @@ class Recommender
   def add_recommendation(rec)
     book = Book.find_by(google_id: rec[:id])
     if !book
-      create_book(rec[:id], rec[:title], rec[:subtitle])
+      create_book(rec[:id], rec[:title], rec[:subtitle], rec[:date_published])
       create_recommendation(rec[:id])
     elsif !user.books.exists?(rec[:id])
       create_recommendation(rec[:id])
     end
   end
 
-  def create_book(google_id, title, subtitle)
-    Book.create google_id: google_id, title: title, subtitle: subtitle
+  def create_book(google_id, title, subtitle, date_published)
+    Book.create(
+      google_id: google_id,
+      title: title,
+      subtitle: subtitle,
+      date_published: date_published
+    )
   end
 
   def create_recommendation(google_id)

@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.string :google_id, size: 12, null: false
       t.string :title, null: false
       t.string :subtitle
+      t.datetime :published_date
 
       t.timestamps
     end

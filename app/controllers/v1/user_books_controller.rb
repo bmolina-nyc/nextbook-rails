@@ -59,7 +59,7 @@ class V1::UserBooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :google_id)
+    params.require(:book).permit(:title, :subtitle, :google_id, :date_published)
   end
 
   def find_or_create_book

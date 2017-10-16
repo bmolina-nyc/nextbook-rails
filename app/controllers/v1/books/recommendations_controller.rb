@@ -2,10 +2,20 @@ class V1::Books::RecommendationsController < ApplicationController
 
   # GET v1/books/recommendations
   def index
-    render json: recommendations, status: :ok
+    data = {
+      books: recommendations,
+      last_request_date: current_user.last_request_date,
+      pending_date: pending_date
+    }
+    render json: data, status: :ok
   end
 
   private
+
+  def pending_date
+    job = Delayed::Job.find_by(id: current_user.recommender_job)
+    job.run_at if job
+  end
 
   def recommendations
     recommendation_ids.map { |id| google_books_lookup(id) }
