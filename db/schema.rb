@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20171008154117) do
     t.string "google_id", null: false
     t.string "title", null: false
     t.string "subtitle"
+    t.date "published_date"
+    t.string "published_date_string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["google_id"], name: "index_books_on_google_id", unique: true
@@ -63,7 +65,7 @@ ActiveRecord::Schema.define(version: 20171008154117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "authentication_token", limit: 30
-    t.datetime "last_request_date", default: "2017-10-12 13:34:58"
+    t.datetime "last_request_date", default: "2017-10-16 22:48:57"
     t.integer "recommender_job"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

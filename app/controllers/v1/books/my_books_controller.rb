@@ -2,7 +2,11 @@ class V1::Books::MyBooksController < ApplicationController
 
   # GET v1/books/my_books
   def index
-    render json: my_books, status: :ok
+    data = {
+      books: my_books,
+      count: books.count
+    }
+    render json: data, status: :ok
   end
 
   private
@@ -19,8 +23,8 @@ class V1::Books::MyBooksController < ApplicationController
     when 'title'
       !sort_dir && sort_dir = 'ASC'
       "title #{sort_dir}"
-    when 'published_date'
-      !sort_dir && sort_dir = 'ASC'
+    when 'date_published'
+      !sort_dir && sort_dir = 'DESC'
       "published_date #{sort_dir}"
     end
   end
@@ -33,9 +37,22 @@ class V1::Books::MyBooksController < ApplicationController
     GoogleBooksApi::Lookup.new(id, current_user).call
   end
 
+  def filtered_books(filter)
+    case filter
+    when 'all'
+      current_user.marked_books
+    when 'liked' || 'disliked' || 'want_to_read' || 'already_read'
+      current_user.books_by_status(filter)
+    end
+  end
+
+  def books
+    params.key?(:status_filter) ? filtered_books(params[:status_filter]) : current_user.marked_books
+  end
+
   def my_books_ids
-    current_user.marked_books
-    .limit(15)
+    books
+    .limit(18)
     .offset(params.key?(:page) ? (params[:page].to_i - 1) * 15 : 0)
     .order(sort_by(params[:sort_by], params[:sort_dir]))
     .pluck(:google_id)

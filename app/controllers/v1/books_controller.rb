@@ -2,7 +2,7 @@ class V1::BooksController < ApplicationController
 
   # GET /v1/books
   def show
-    render json: google_books_lookup, status: :ok
+    render json: {books: google_books_lookup}, status: :ok
   end
 
   private

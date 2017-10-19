@@ -5,7 +5,8 @@ class V1::Books::RecommendationsController < ApplicationController
     data = {
       books: recommendations,
       last_request_date: current_user.last_request_date,
-      pending_date: pending_date
+      pending_date: pending_date,
+      count: current_user.recommendations.count
     }
     render json: data, status: :ok
   end

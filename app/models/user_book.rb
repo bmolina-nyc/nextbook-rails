@@ -11,6 +11,7 @@ class UserBook < ApplicationRecord
   USER_MARKED_KEYS = statuses.keys - %w(recommended rejected)
 
   scope :user_marked, -> { where(status: USER_MARKED_KEYS) }
+  scope :by_status, -> (status) { where(status: status )}
 
   belongs_to :user
   belongs_to :book, foreign_key: :google_id

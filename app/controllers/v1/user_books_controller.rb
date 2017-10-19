@@ -59,13 +59,24 @@ class V1::UserBooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :google_id, :date_published)
+    params.require(:book).permit(:title, :subtitle, :google_id, :published_date)
   end
 
   def find_or_create_book
     book = Book.find_by(google_id: book_params[:google_id])
     return book if book
-    Book.create(book_params)
+    Book.create do |b|
+      b.title = book_params[:title]
+      b.subtitle = book_params[:subtitle]
+      b.google_id = book_params[:google_id]
+      b.published_date_string = book_params[:published_date]
+      b.published_date = published_date(book_params[:published_date])
+    end
+  end
+
+  def published_date(date_string)
+    date_split = date_string.split('-').map(&:to_i)
+    Date.new(*date_split)
   end
 
   def set_user_book

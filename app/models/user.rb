@@ -18,6 +18,10 @@ class User < ApplicationRecord
     assoc.has_many :marked_books,       -> { UserBook.user_marked }
   end
 
+  def books_by_status(status)
+    self.books.where('user_books.status = ?', UserBook.statuses[status.to_sym])
+  end
+
   def liked_titles
     self.books_liked_since_last_request.pluck :title
   end
