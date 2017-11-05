@@ -5,6 +5,7 @@ the_way_of_kings:
   title: The Way of Kings
   published_date_string: '2014-03-04'
   published_date: <%= Date.new(2014, 3, 4) %>
+  page_count: 1049
 
 snow_crash:
   google_id: RMd3GpIFxcUC
@@ -12,3 +13,4 @@ snow_crash:
   subtitle: A Novel
   published_date_string: '2003-08-26'
   published_date: <%= Date.new(2003, 8, 26) %>
+  page_count: 249

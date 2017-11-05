@@ -29,6 +29,7 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'jwt'
 
 group :test do
   gem 'minitest-reporters'

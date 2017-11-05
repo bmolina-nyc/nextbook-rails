@@ -24,7 +24,7 @@ class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerato
   end
 
   def volume_info_fields
-    ['title', 'subtitle'].join(',')
+    ['title', 'subtitle', 'publishedDate', 'pageCount'].join(',')
   end
 
   attr_reader :title, :author

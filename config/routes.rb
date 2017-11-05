@@ -4,14 +4,18 @@ Rails.application.routes.draw do
     namespace :books do
       resources :recommendations, only: %i(index)
       resources :my_books, only: %i(index)
+      namespace :my_books do
+        resources :liked, :disliked, :already_read, :want_to_read, only: :index
+      end
     end
     namespace :user_books do
       resource :counts, only: :show, controller: 'counts'
+      resource :for_ids, only: :show, controller: 'for_ids'
     end
     resource  :searches, only: %i(show)
     resources :books, only: %i(index show)
-    resources :users, only: %i(create show update destroy)
-    resources :user_books, only: %i(index show create update destroy)
+    resource :user, only: %i(create show update destroy)
+    resources :user_books, param: :google_id, only: %i(index show create update destroy)
     resource :sessions, only: %i(create show destroy)
   end
 

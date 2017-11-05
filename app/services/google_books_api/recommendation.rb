@@ -6,11 +6,11 @@ class GoogleBooksApi::Recommendation
   end
 
   def call
-    Rails.cache.fetch("GB-RCM-#{title}#{author}") do
+    # Rails.cache.fetch("GB-RCM-#{title}#{author}") do
       generate_url
       make_request
       parse_response
-    end
+    # end
   end
 
   private

@@ -6,8 +6,6 @@
 #
 linus:
   email: linus.rosskamp@gmail.com
-  authentication_token: 'token'
 
 john:
   email: john.smith@gmail.com
-  authentication_token: 'token2'

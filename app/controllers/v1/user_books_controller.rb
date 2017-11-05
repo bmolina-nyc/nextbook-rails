@@ -1,5 +1,5 @@
 class V1::UserBooksController < ApplicationController
-  before_action :set_user_book, only: %i(show update destroy)
+  before_action :set_user_book, only: [:show, :destroy]
 
   # GET /v1/user_books
   def index
@@ -7,7 +7,7 @@ class V1::UserBooksController < ApplicationController
     render :index, status: :ok
   end
 
-  # GET /v1/user_books/:id
+  # GET /v1/user_books/:google_id
   def show
     render :show, status: :ok
   end
@@ -15,8 +15,10 @@ class V1::UserBooksController < ApplicationController
   # POST /v1/user_books
   def create
     @book = find_or_create_book
-    @user_book = create_user_book
-    if @user_book
+    if @user_book = find_user_book(book_params[:id])
+      @user_book.update status: params[:status]
+      render :show, status: :ok
+    elsif @user_book = create_user_book
       @user_book.status == 'liked' && fetch_recommendations
       render :show, status: :ok
     else
@@ -24,17 +26,7 @@ class V1::UserBooksController < ApplicationController
     end
   end
 
-  # PUT/PATCH /v1/user_books
-  def update
-    if @user_book.update status: params[:status]
-      @user_book.status == 'liked' && fetch_recommendations
-      render :show, status: :ok
-    else
-      render_json_errors @user_book
-    end
-  end
-
-  # DELETE /v1/user_books/:id
+  # DELETE /v1/user_books/:google_id
   def destroy
     @user_book.destroy ? head(:no_content) : head(:bad_request)
   end
@@ -59,27 +51,34 @@ class V1::UserBooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :google_id, :published_date)
+    permitted = %i(title subtitle id published_date page_count)
+    params.require(:book).permit(permitted)
   end
 
   def find_or_create_book
-    book = Book.find_by(google_id: book_params[:google_id])
+    book = Book.find_by(google_id: book_params[:id])
     return book if book
     Book.create do |b|
       b.title = book_params[:title]
       b.subtitle = book_params[:subtitle]
-      b.google_id = book_params[:google_id]
+      b.google_id = book_params[:id]
       b.published_date_string = book_params[:published_date]
       b.published_date = published_date(book_params[:published_date])
+      b.page_count = book_params[:page_count]
     end
   end
 
+  def set_user_book
+    @user_book ||= find_user_book(params[:google_id])
+  end
+
+  def find_user_book(google_id)
+    current_user.user_books.find_by(google_id: google_id)
+  end
+
+  # TODO: Move to model!
   def published_date(date_string)
     date_split = date_string.split('-').map(&:to_i)
     Date.new(*date_split)
-  end
-
-  def set_user_book
-    @user_book ||= UserBook.find(params[:id])
   end
 end
