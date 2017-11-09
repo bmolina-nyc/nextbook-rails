@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 gem 'devise', '>= 4.0'
-gem 'simple_token_authentication', '~> 1.0'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 gem 'delayed_job_active_record'
 gem 'daemons'
