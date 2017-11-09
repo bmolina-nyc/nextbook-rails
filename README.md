@@ -24,7 +24,7 @@ Read the posts while the application is being built:
 - Ruby on Rails
 - PostgreSQL/MemCache
 - React/Redux
-- Semantic UI React (using [ react-semantic.ui-starter](https://github.com/Metnew/react-semantic.ui-starter))
+- Material UI
 
 **APIs**
 - [GoogleBooks API](https://developers.google.com/books/docs/v1/reference/volumes/list)
@@ -36,8 +36,8 @@ Read the posts while the application is being built:
 - Devise
 - VCR
 - WebMock
-- Simple Token Authentication
-- Delayed Job
+- Delayed Job Active Record / Daemons
+- JWT
 
 **JavaScript Libraries**
 - React
@@ -45,3 +45,4 @@ Read the posts while the application is being built:
 - React-Redux(-Router)
 - React-Router
 - Lodash
+- Superagent(-Promise)
