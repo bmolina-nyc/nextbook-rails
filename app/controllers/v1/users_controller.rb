@@ -1,11 +1,13 @@
 class V1::UsersController < ApplicationController
   before_action :set_user, only: %i(show update destroy)
+  skip_before_action :authenticate_user_from_token!, only: [:create]
 
   # POST /v1/user
   def create
     @user = User.new(user_params)
 
     if @user.save
+      @auth_token = jwt_token(@user)
       render :create, status: :created
     else
       render_json_errors(@user)
