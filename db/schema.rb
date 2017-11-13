@@ -63,12 +63,11 @@ ActiveRecord::Schema.define(version: 20171008154117) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.boolean "demo_account", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "authentication_token", limit: 30
-    t.datetime "last_request_date", default: "2017-10-24 01:29:31"
+    t.datetime "last_request_date", default: "2017-11-12 02:02:16"
     t.integer "recommender_job"
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

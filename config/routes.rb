@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resource :demos, only: :create
+
   namespace :v1 do
     namespace :books do
       resources :recommendations, only: %i(index)

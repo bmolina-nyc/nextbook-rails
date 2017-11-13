@@ -7,4 +7,9 @@ class Book < ApplicationRecord
   def self.latest_titles
     self.last(6).pluck :title
   end
+
+  def self.published_date(date_string)
+    date_split = date_string.split('-').map(&:to_i)
+    Date.new(*date_split)
+  end
 end

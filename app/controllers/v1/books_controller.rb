@@ -43,7 +43,7 @@ class V1::BooksController < ApplicationController
     @params ||= {
       page: params[:page]&.to_i || 1,
       sort: params[:sort] || 'added',
-      max: params[:max]&.to_i || 15
+      max: params[:max]&.to_i || 18
     }
   end
 end
