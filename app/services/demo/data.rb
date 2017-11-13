@@ -1,6 +1,12 @@
 module Demo
   module Data
     BOOKS = [{
+      google_id: "UqccAgAAQBAJ",
+      title: "Creativity, Inc.",
+      subtitle: "Overcoming the Unseen Forces That Stand in the Way of True Inspiration",
+      published_date_string: "2014-04-08",
+      page_count: 368
+    },{
       google_id: "QVn-CgAAQBAJ",
       title: "The Way of Kings",
       subtitle: nil,
@@ -223,12 +229,6 @@ module Demo
       published_date_string: "2013-07-02",
       page_count: 192
     }, {
-      google_id: "VTnRDQAAQBAJ",
-      title: "Paradox Bound",
-      subtitle: "A Novel",
-      published_date_string: "2017-09-26",
-      page_count: 384
-    }, {
       google_id: "54x7OjjY5TwC",
       title: "The Postman",
       subtitle: nil,
@@ -349,9 +349,6 @@ module Demo
       google_id: "XVwOEeHTU4QC"
     }, {
       status: "liked",
-      google_id: "VTnRDQAAQBAJ"
-    }, {
-      status: "liked",
       google_id: "WJfYBQAAQBAJ"
     }, {
       status: "liked",
@@ -371,6 +368,9 @@ module Demo
     }, {
       status: "recommended",
       google_id: "YGouDwAAQBAJ"
+    }, {
+      status: "liked",
+      google_id: "UqccAgAAQBAJ"
     }]
   end
 end
