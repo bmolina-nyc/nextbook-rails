@@ -1,4 +1,8 @@
 # NextBook
+
+Check out the LIVE DEMO [here](nextbook.surge.sh).
+Click on **Demo** and then **Go To Demo**.
+
 **NextBook will**
 - allow the user to search for books
 - allow the user to mark a book as
