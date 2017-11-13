@@ -1,6 +1,6 @@
 # NextBook
 
-Check out the LIVE DEMO [here](nextbook.surge.sh).
+Check out the LIVE DEMO [here](http://www.nextbook.surge.sh).
 Click on **Demo** and then **Go To Demo**.
 
 **NextBook will**
