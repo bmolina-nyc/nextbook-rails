@@ -11,7 +11,7 @@ class Demo::CreateUser
       email: generate_email,
       password: password,
       password_confirmation: password,
-      demo_account: true
+      # demo_account: true
     }
   end
 
