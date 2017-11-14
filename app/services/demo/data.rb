@@ -7,6 +7,12 @@ module Demo
       published_date_string: "2014-04-08",
       page_count: 368
     },{
+      google_id: "SlfkBgAAQBAJ",
+      title: "Presence",
+      subtitle: "Bringing Your Boldest Self to Your Biggest Challenges",
+      published_date_string: "2015-12-22",
+      page_count: 352
+    }, {
       google_id: "QVn-CgAAQBAJ",
       title: "The Way of Kings",
       subtitle: nil,
@@ -326,6 +332,9 @@ module Demo
     }, {
       status: "liked",
       google_id: "GJqVBgAAQBAJ"
+    }, {
+      status: "liked",
+      google_id: "SlfkBgAAQBAJ"
     }, {
       status: "liked",
       google_id: "B4zIAgAAQBAJ"
