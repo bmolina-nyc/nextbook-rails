@@ -11,9 +11,10 @@ Click on **Demo** and then **Go To Demo**.
   - 'want be read'
   - 'already read'
 - based on the users liked books, they will be given recommendations
+- allow users to view videos reviews (YouTube) for a book
 
 ## Progress
-Read the posts while the application is being built:
+Read some posts about that were written while the app was being built:
 
 [Part 1 - Intro - 8/24/2017](http://linusrosskamp.com/articles/2017-08/part-1-nextbook-rails-react-single-page-application)<br>
 [Part 2 - Setup - 8/25/2017](http://linusrosskamp.com/articles/2017-08/part-2-nextbook-rails-react-single-page-application)<br>
