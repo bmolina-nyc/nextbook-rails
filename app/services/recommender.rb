@@ -35,20 +35,15 @@ class Recommender
   end
 
   def create_book(google_id, title, subtitle, published_date, page_count)
-    puts "google_id: #{google_id}, title: #{title}, subtitle: #{subtitle}, published_date: #{published_date}, page_count: #{page_count}"
+    Book.write_to_cache
     Book.create(
       google_id: google_id,
       title: title,
       subtitle: subtitle,
       published_date_string: published_date,
       page_count: page_count,
-      published_date: published_date(published_date)
+      published_date: Book.published_date(published_date)
     )
-  end
-
-  def published_date(date_string)
-    date_split = date_string.split('-').map(&:to_i)
-    Date.new(*date_split)
   end
 
   def create_recommendation(google_id)
