@@ -35,7 +35,7 @@ class Recommender
   end
 
   def create_book(google_id, title, subtitle, published_date, page_count)
-    Book.write_to_cache
+    Book.write_to_cache(google_id)
     Book.create(
       google_id: google_id,
       title: title,

@@ -58,7 +58,7 @@ class V1::UserBooksController < ApplicationController
   def find_or_create_book
     book = Book.find_by(google_id: book_params[:id])
     return book if book
-    Book.write_to_cache
+    Book.write_to_cache(book_params[:id])
     Book.create do |b|
       b.title = book_params[:title]
       b.subtitle = book_params[:subtitle]
