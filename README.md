@@ -14,7 +14,7 @@ Click on **Demo** and then **Go To Demo**.
 - allow users to view videos reviews (YouTube) for a book
 
 ## Progress
-Read some posts about that were written while the app was being built:
+Read some posts that were written while the app was being built:
 
 [Part 1 - Intro - 8/24/2017](http://linusrosskamp.com/articles/2017-08/part-1-nextbook-rails-react-single-page-application)<br>
 [Part 2 - Setup - 8/25/2017](http://linusrosskamp.com/articles/2017-08/part-2-nextbook-rails-react-single-page-application)<br>
@@ -32,10 +32,10 @@ Read some posts about that were written while the app was being built:
 - Material UI
 
 **APIs**
-- [GoogleBooks API](https://developers.google.com/books/docs/v1/reference/volumes/list)
-- [TasteDive (formerly TasteKid) API](https://tastedive.com/read/api)
-- [Youtube API](https://developers.google.com/youtube/v3/)
-- [Wikipedia API](https://en.wikipedia.org/w/api.php)
+- [GoogleBooks](https://developers.google.com/books/docs/v1/reference/volumes/list)
+- [TasteDive (formerly TasteKid)](https://tastedive.com/read/api)
+- [Youtube](https://developers.google.com/youtube/v3/)
+- [Wikipedia](https://en.wikipedia.org/w/api.php)
 
 **Ruby Gems**
 - Devise

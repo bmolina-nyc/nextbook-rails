@@ -12,4 +12,8 @@ class Book < ApplicationRecord
     date_split = date_string.split('-').map(&:to_i)
     Date.new(*date_split)
   end
+
+  def self.write_to_cache(id)
+    Rails.cache.write("GB-LKP-#{id}", unless_exist: true, expires_in: 365.days)
+  end
 end
