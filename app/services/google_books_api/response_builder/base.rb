@@ -18,10 +18,7 @@ class GoogleBooksApi::ResponseBuilder::Base
 
   def add_status_to_book(book)
     user_book = user.user_books.find_by(google_id: book[:id])
-    book.merge({
-      status: user_book&.status,
-      book: book
-    })
+    book.merge({ status: user_book&.status })
   end
 
   attr_reader :user, :hash
