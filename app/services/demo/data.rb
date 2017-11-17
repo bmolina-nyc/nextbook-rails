@@ -324,7 +324,7 @@ module Demo
       status: "recommended",
       google_id: "SlizBgAAQBAJ"
     }, {
-      status: "want_to_read",
+      status: "liked",
       google_id: "a8KtDgAAQBAJ"
     }, {
       status: "liked",

@@ -11,6 +11,7 @@ class Demo::CreateUser
       email: generate_email,
       password: password,
       password_confirmation: password,
+      last_request_date: 5.minutes.ago
       # demo_account: true
     }
   end

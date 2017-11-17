@@ -7,7 +7,7 @@ class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerato
 
   private
 
-  def get_params_hash
+  def params_hash
     super.merge({
       q: "intitle:#{title}+inauthor:#{author}",
       printType: PRINT_TYPE,
@@ -15,7 +15,7 @@ class GoogleBooksApi::UrlGenerator::Recommendation < GoogleBooksApi::UrlGenerato
     })
   end
 
-  def get_fields
+  def fields
     "items(#{items_fields})"
   end
 

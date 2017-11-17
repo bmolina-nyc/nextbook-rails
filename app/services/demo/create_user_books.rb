@@ -12,10 +12,13 @@ class Demo::CreateUserBooks
   private
 
   def user_book_params(user_book)
+    timestamp = 10.minutes.ago
     {
       user_id: user.id,
       google_id: user_book[:google_id],
-      status:  user_book[:status]
+      status:  user_book[:status],
+      updated_at: timestamp,
+      created_at: timestamp
     }
   end
 

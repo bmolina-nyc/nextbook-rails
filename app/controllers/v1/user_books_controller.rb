@@ -58,13 +58,12 @@ class V1::UserBooksController < ApplicationController
   def find_or_create_book
     book = Book.find_by(google_id: book_params[:id])
     return book if book
-    Book.write_to_cache(book_params[:id])
     Book.create do |b|
       b.title = book_params[:title]
       b.subtitle = book_params[:subtitle]
       b.google_id = book_params[:id]
       b.published_date_string = book_params[:published_date]
-      b.published_date = published_date(book_params[:published_date])
+      b.published_date = Book.published_date(book_params[:published_date])
       b.page_count = book_params[:page_count]
     end
   end
@@ -75,11 +74,5 @@ class V1::UserBooksController < ApplicationController
 
   def find_user_book(google_id)
     current_user.user_books.find_by(google_id: google_id)
-  end
-
-  # TODO: Move to model!
-  def published_date(date_string)
-    date_split = date_string.split('-').map(&:to_i)
-    Date.new(*date_split)
   end
 end

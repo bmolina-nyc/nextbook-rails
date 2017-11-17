@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20171008154117) do
     t.boolean "demo_account", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "last_request_date", default: "2017-11-14 01:56:49"
+    t.datetime "last_request_date", default: "2017-11-16 17:33:15"
     t.integer "recommender_job"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

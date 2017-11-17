@@ -5,11 +5,11 @@ class GoogleBooksApi::UrlGenerator::Lookup < GoogleBooksApi::UrlGenerator::Base
 
   private
 
-  def get_base_url
+  def base_url
     "#{BASE_URL}/#{google_id}"
   end
 
-  def get_fields
+  def fields
     "id,volumeInfo(#{VOLUME_INFO_FIELDS.join(',')})"
   end
 

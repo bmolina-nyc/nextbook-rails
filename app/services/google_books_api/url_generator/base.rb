@@ -1,6 +1,6 @@
 class GoogleBooksApi::UrlGenerator::Base
   def call
-    "#{get_base_url}?#{get_params_hash.to_query}"
+    "#{base_url}?#{params_hash.to_query}"
   end
 
   VOLUME_INFO_FIELDS = %w(
@@ -10,11 +10,11 @@ class GoogleBooksApi::UrlGenerator::Base
 
   private
 
-  def get_params_hash
-    { key: API_KEY, fields: get_fields }
+  def params_hash
+    { key: API_KEY, fields: fields }
   end
 
-  def get_base_url
+  def base_url
     BASE_URL
   end
 
