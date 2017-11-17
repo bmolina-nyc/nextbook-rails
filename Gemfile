@@ -30,6 +30,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'jwt'
 gem 'dalli'
+gem 'memcachier'
 
 group :test do
   gem 'minitest-reporters'
