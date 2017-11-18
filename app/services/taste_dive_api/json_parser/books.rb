@@ -11,7 +11,7 @@ class TasteDiveApi::JsonParser::Books < TasteDiveApi::JsonParser::Base
 
   def get_book_hash(book)
     {
-      name: get_name(book),
+      title: get_name(book),
       wiki_page: wiki_page(book)
     }
   end
