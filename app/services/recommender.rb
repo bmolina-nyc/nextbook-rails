@@ -47,10 +47,11 @@ class Recommender
   def filter_recommendations(recommendations)
     recommendations.map do |rec|
       lookup = google_books_lookup(rec[:id])
-      return nil unless lookup.slice(required_fields).values.all? { |val| val != nil }
-      return nil if user.user_books.exists?(google_id: rec[:id])
+      next nil unless lookup.slice(*required_fields).values.all? { |val| val != nil }
+      next nil if user.user_books.exists?(google_id: rec[:id])
       rec
-    end.compact
+    end
+    .compact
   end
 
   def taste_dive_book_recommendations(titles)
