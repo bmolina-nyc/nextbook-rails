@@ -17,9 +17,10 @@ class V1::UserBooksController < ApplicationController
     @book = find_or_create_book
     if @user_book = find_user_book(book_params[:id])
       @user_book.update status: params[:status]
+      fetch_if_liked
       render :show, status: :ok
     elsif @user_book = create_user_book
-      @user_book.status == 'liked' && fetch_recommendations
+      fetch_if_liked
       render :show, status: :ok
     else
       render_json_errors @user_book
@@ -32,6 +33,10 @@ class V1::UserBooksController < ApplicationController
   end
 
   private
+
+  def fetch_if_liked
+    @user_book.status == 'liked' && fetch_recommendations
+  end
 
   def fetch_recommendations
     return nil if current_user.recommender_job

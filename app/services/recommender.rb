@@ -1,5 +1,5 @@
 class Recommender
-
+  # TODO: refactor this class!
   def initialize(user)
     @user = user
   end
@@ -7,6 +7,7 @@ class Recommender
   def call
     titles_and_authors = taste_dive_book_recommendations(user.liked_titles)
     recommendations = google_books_recommendations(titles_and_authors)
+    return nil unless recommendations
     filtered = filter_recommendations(recommendations)
     add_recommendations(filtered) if filtered
   end
@@ -39,9 +40,13 @@ class Recommender
   end
 
   def google_books_recommendations(titles_and_authors)
+    required_fields = %i(id title page_count published_date)
     titles_and_authors.map do |book|
-      google_books_recommendation(book[:name], book[:author])
+      rec = google_books_recommendation(book[:name], book[:author])
+      next nil unless rec.slice(*required_fields).values.all? { |val| val != nil }
+      rec
     end
+    .compact
   end
 
   def filter_recommendations(recommendations)
