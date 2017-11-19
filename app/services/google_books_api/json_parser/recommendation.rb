@@ -7,12 +7,6 @@ class GoogleBooksApi::JsonParser::Recommendation < GoogleBooksApi::JsonParser::B
   private
 
   def get_item_hash(item)
-    {
-      id: get_google_id(item),
-      title: get_title(item),
-      subtitle: get_subtitle(item),
-      page_count: get_page_count(item),
-      published_date: get_published_date(item)
-    }
+    { id: get_google_id(item) }
   end
 end

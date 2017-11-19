@@ -5,7 +5,7 @@ class V1::UsersController < ApplicationController
   # POST /v1/user
   def create
     @user = User.new(user_params)
-
+    @user.last_request_date = 10.minutes.ago
     if @user.save
       @auth_token = jwt_token(@user)
       render :create, status: :created
