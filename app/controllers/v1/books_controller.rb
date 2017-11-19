@@ -13,7 +13,10 @@ class V1::BooksController < ApplicationController
   end
 
   def lookup_books(book_ids)
-    book_ids.map { |id| google_books_lookup(id) }
+    fields = %w(
+      id title subtitle authors publishedDate status publisher categories thumbnail
+    )
+    book_ids.map { |id| google_books_lookup(id).slice(*fields) }
   end
 
   def sort(sort, sort_dir)
